@@ -1,3 +1,3 @@
 import { writable } from 'svelte/store';
 
-export const summ = writable(0);
+export const sum = writable(0);

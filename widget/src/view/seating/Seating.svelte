@@ -1,30 +1,29 @@
 <script>
-  import Seat from "./Seat.svelte";
-  import { summ } from "../../store";
+  import { sum } from "../../store/sum";
+  import { seating } from "../../store/seating";
 
-  const seatings = [...Array(100).keys()].map(item => ({
-    id: item,
-    price: 120,
-    disabled: false,
-  }));
+  function addToOrder(seat) {
+    const { id, disabled, price } = seat;
 
-  const seatingsOrder = [];
-
-  function addToOrder(event) {
-    const { seat } = event.detail;
-
-    seatingsOrder.push(seat);
-    summ.update(n => n + seat.price);
+    seating.toggleSeat(id);
+    sum.update(n => n + price);
   }
 </script>
 
-<div class="mb-3">Цена: {$summ}</div>
+<div class="mb-2">Цена: {$sum}</div>
+<div class="mb-3">Выбранные места: </div>
 
 <section class="section section_seating">
   <div class="d-flex flex-wrap">
-    {#each seatings as seat, i}
+    {#each $seating as seat (seat.id)}
       <div class="seating__col p-1 d-flex">
-        <Seat on:clickSeat={addToOrder} {seat} />
+        <div
+          on:click={(e) => addToOrder(seat)}
+          class:disabled={seat.disabled}
+          class="seating__item p-2 w-100 text-center border border-succes rounded
+          cursor-pointer">
+            {seat.id}
+        </div>
       </div>
     {/each}
   </div>

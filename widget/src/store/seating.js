@@ -1,0 +1,29 @@
+import { writable } from 'svelte/store';
+
+const seatingArr = [...Array(100).keys()].map(item => ({
+    id: item,
+    price: 120,
+    disabled: false,
+  }));
+
+function seatingCreate() {
+    const { subscribe, update } = writable(seatingArr);
+
+    return {
+        subscribe,
+        toggleSeat: seatId => {
+            update(seats => {
+                seats[seatId].disabled = !seats[seatId].disabled;
+                return seats;
+            });
+        },
+        // updateText: (id, text) => {
+        //     update(texts => {
+        //         let idx = texts.findIndex(t => t.id === id);
+        //         return [...texts.slice(0, idx), { ...texts[idx], text }, ...texts.slice(idx + 1)];
+        //     });
+        // },
+    };
+}
+
+export const seating = seatingCreate();
