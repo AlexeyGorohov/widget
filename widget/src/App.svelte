@@ -6,5 +6,5 @@
 
 <main class="p-2">
   <h1>Выберите место</h1>
-  <Seating></Seating>
+  <Seating />
 </main>
