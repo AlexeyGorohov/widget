@@ -1,0 +1,22 @@
+@import "https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css";
+
+main {
+  background: #eee;
+}
+
+.seating {
+  background-color: var(--yellow);
+}
+
+.seating__col {
+  flex: 1 0 calc(100% / 10);
+  max-width: calc(100% / 10);
+}
+
+.seating__item {
+  background-color: var(--yellow);
+}
+
+.seating__item.disabled {
+  background-color: var(--red);
+}
