@@ -1,9 +1,4 @@
 <!DOCTYPE HTML>
-<!--
-	Hielo by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
--->
 <html>
 	<head>
 		<title>Hielo by TEMPLATED</title>
@@ -94,7 +89,7 @@
 									</header>
 									<p> Cras aliquet urna ut sapien tincidunt, quis malesuada elit facilisis. Vestibulum sit amet tortor velit. Nam elementum nibh a libero pharetra elementum. Maecenas feugiat ex purus, quis volutpat lacus placerat malesuada.</p>
 									<footer class="align-center">
-										<a href="#" class="button alt">Learn More</a>
+										<a href="#" class="button alt" data-cinema-id="100">Learn More</a>
 									</footer>
 								</div>
 							</div>
@@ -186,14 +181,16 @@
 			<script src="assets/js/skel.min.js"></script>
 			<script src="assets/js/util.js"></script>
 			<script src="assets/js/main.js"></script>
+			<script src="widget/public/CBWidget.js"></script>
 			<script>
-				(function (w,d,s,o,f,js,fjs) {
-				w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
-				js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
-				js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
-				}(window, document, 'script', 'CBWIDGET', 'widget/public/cinemabox.js'));
-				console.log(CBWIDGET);
-				// CBWIDGET('init', {CBID: 42});	
+				cbwidget.$set({CBID: 5});
+				// (function (w,d,s,o,f,js,fjs) {
+				// w['JS-Widget']=o;w[o] = w[o] || function () { (w[o].q = w[o].q || []).push(arguments) };
+				// js = d.createElement(s), fjs = d.getElementsByTagName(s)[0];
+				// js.id = o; js.src = f; js.async = 1; fjs.parentNode.insertBefore(js, fjs);
+				// }(window, document, 'script', 'CBWIDGET', 'widget/public/cinemabox.js'));
+				// console.log(CBWIDGET);
+				// // CBWIDGET('init', {CBID: 42});	
 			</script>
 	</body>
 </html>

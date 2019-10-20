@@ -13,8 +13,8 @@ export default {
 	output: {
 		sourcemap: true,
 		format: 'iife',
-		name: 'CBWidget',
-		file: 'public/CBWidget.js'
+		name: 'cbwidget',
+		file: 'public/cbwidget.js'
 	},
 	plugins: [
 		postcss({

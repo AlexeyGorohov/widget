@@ -5,8 +5,13 @@
     "gzipped": 3296
   },
   "public\\CBWidget.js": {
-    "bundled": 21725,
-    "minified": 7563,
-    "gzipped": 3285
+    "bundled": 28061,
+    "minified": 11163,
+    "gzipped": 4578
+  },
+  "public\\cbwidget.js": {
+    "bundled": 28502,
+    "minified": 11401,
+    "gzipped": 4684
   }
 }
