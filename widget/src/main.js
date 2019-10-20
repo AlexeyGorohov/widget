@@ -1,8 +1,6 @@
 import "./assets/css/main.css";
 import App from "./App.svelte";
 
-var btns = document.querySelectorAll("[data-cinemabox-id]");
-
 var CBWidget = new App({
   target: document.body,
   props: {
