@@ -1,10 +1,12 @@
 <script>
-  import Seating from "./view/seating/Seating.svelte";
+  import Seating from "./view/seating/Index.svelte";
 
-  export let name;
+  export let CBID;
+
+  console.log(CBID)
 </script>
 
 <main class="p-2">
   <h1>Выберите место</h1>
-  <Seating />
+  <Seating></Seating>
 </main>

@@ -4,6 +4,7 @@ import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
+import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 
 const production = !process.env.ROLLUP_WATCH;
 
@@ -12,8 +13,8 @@ export default {
 	output: {
 		sourcemap: true,
 		format: 'iife',
-		name: 'app',
-		file: 'public/cinemabox.js'
+		name: 'CBWidget',
+		file: 'public/CBWidget.js'
 	},
 	plugins: [
 		postcss({
@@ -39,6 +40,7 @@ export default {
 			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
 		}),
 		commonjs(),
+		sizeSnapshot(), // напишет в консоль размер бандла
 
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production

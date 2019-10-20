@@ -1,0 +1,12 @@
+{
+  "public\\cinemabox.js": {
+    "bundled": 21744,
+    "minified": 7583,
+    "gzipped": 3296
+  },
+  "public\\CBWidget.js": {
+    "bundled": 21725,
+    "minified": 7563,
+    "gzipped": 3285
+  }
+}

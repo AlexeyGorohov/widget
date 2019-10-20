@@ -1,10 +1,13 @@
+import './assets/css/main.css';
 import App from './App.svelte';
 
-var cinemaBoxWidget = new App({
+var CBWidget = new App({
 	target: document.body,
 	props: {
 		CBID: undefined
 	}
 });
 
-export default cinemaBoxWidget;
+export default CBWidget;
+
+// https://github.com/jenyayel/js-widget/blob/master/src/main.js

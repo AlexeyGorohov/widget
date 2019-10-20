@@ -1,17 +1,19 @@
 <script>
-  import { sum } from "../../store/sum";
   import { seating } from "../../store/seating";
 
   function addToOrder(seat) {
-    const { id, disabled, price } = seat;
+    const { id } = seat;
 
     seating.toggleSeat(id);
-    sum.update(n => n + price);
   }
+
+  $: selectedSeat = $seating.filter(item => item.disabled === true);
+  $: sum = selectedSeat.reduce((sum, item) => sum + item.price, 0);
+
 </script>
 
-<div class="mb-2">Цена: {$sum}</div>
-<div class="mb-3">Выбранные места: </div>
+<div class="mb-2">Цена: {sum}</div>
+<div class="mb-3">Выбранные места: {#each selectedSeat as item} {item.id} {/each}</div>
 
 <section class="section section_seating">
   <div class="d-flex flex-wrap">

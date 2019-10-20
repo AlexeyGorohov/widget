@@ -16,13 +16,7 @@ function seatingCreate() {
                 seats[seatId].disabled = !seats[seatId].disabled;
                 return seats;
             });
-        },
-        // updateText: (id, text) => {
-        //     update(texts => {
-        //         let idx = texts.findIndex(t => t.id === id);
-        //         return [...texts.slice(0, idx), { ...texts[idx], text }, ...texts.slice(idx + 1)];
-        //     });
-        // },
+        }
     };
 }
 

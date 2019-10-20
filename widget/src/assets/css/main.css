@@ -14,9 +14,13 @@ main {
 }
 
 .seating__item {
+  transition: .3s ease;
+  cursor: pointer;
   background-color: var(--yellow);
 }
 
 .seating__item.disabled {
+  cursor: auto;
+  color:white;
   background-color: var(--red);
 }
