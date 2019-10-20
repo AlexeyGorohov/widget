@@ -29,7 +29,6 @@ export default {
 			// 	css.write('public/bundle.css');
 			// }
 		}),
-
 		// If you have external dependencies installed from
 		// npm, you'll most likely need these plugins. In
 		// some cases you'll need additional configuration —
@@ -40,8 +39,7 @@ export default {
 			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
 		}),
 		commonjs(),
-		sizeSnapshot(), // напишет в консоль размер бандла
-
+		// sizeSnapshot(), // напишет в консоль размер бандла
 		// Watch the `public` directory and refresh the
 		// browser on changes when not in production
 		!production && livereload('public'),

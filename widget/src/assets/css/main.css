@@ -3,7 +3,6 @@
 main {
   background: #eee;
 }
-
 .seating {
   background-color: var(--yellow);
 }
@@ -14,13 +13,28 @@ main {
 }
 
 .seating__item {
-  transition: .3s ease;
+  transition: 0.3s ease;
   cursor: pointer;
   background-color: var(--yellow);
 }
 
 .seating__item.disabled {
   cursor: auto;
-  color:white;
+  color: white;
   background-color: var(--red);
+}
+
+.widget-cb .modal {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 300ms ease-in-out;
+}
+
+.widget-cb .modal.show {
+  opacity: 1;
+  pointer-events: auto;
 }

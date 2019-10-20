@@ -1,4 +1,6 @@
 <script>
+  import { tick } from 'svelte';
+
   import { seating } from "../../store/seating";
 
   function addToOrder(seat) {
