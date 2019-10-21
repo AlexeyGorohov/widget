@@ -1,54 +1,73 @@
+import babel from 'rollup-plugin-babel';
 import commonjs from 'rollup-plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import postcss from 'rollup-plugin-postcss';
 import resolve from 'rollup-plugin-node-resolve';
+import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 import svelte from 'rollup-plugin-svelte';
 import { terser } from 'rollup-plugin-terser';
-import { sizeSnapshot } from "rollup-plugin-size-snapshot";
 
 const production = !process.env.ROLLUP_WATCH;
 
-export default {
-	input: 'src/main.js',
-	output: {
-		sourcemap: true,
-		format: 'iife',
-		name: 'cbwidget',
-		file: 'public/cbwidget.js'
-	},
-	plugins: [
-		postcss({
-			extensions: ['.css', '.sass','scss'],
-		}),
-		svelte({
-			// enable run-time checks when not in production
-			dev: !production,
-			// we'll extract any component CSS out into
-			// a separate file — better for performance
-			// css: css => {
-			// 	css.write('public/bundle.css');
-			// }
-		}),
-		// If you have external dependencies installed from
-		// npm, you'll most likely need these plugins. In
-		// some cases you'll need additional configuration —
-		// consult the documentation for details:
-		// https://github.com/rollup/rollup-plugin-commonjs
-		resolve({
-			browser: true,
-			dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
-		}),
-		commonjs(),
-		// sizeSnapshot(), // напишет в консоль размер бандла
-		// Watch the `public` directory and refresh the
-		// browser on changes when not in production
-		!production && livereload('public'),
+const plugins = [
+	postcss({
+		extensions: ['.css', '.sass', 'scss'],
+	}),
+	// If you have external dependencies installed from
+	// npm, you'll most likely need these plugins. In
+	// some cases you'll need additional configuration —
+	// consult the documentation for details:
+	// https://github.com/rollup/rollup-plugin-commonjs
+	babel({
+		exclude: 'node_modules/**'
+	}),
+	resolve({
+		browser: true,
+		dedupe: importee => importee === 'svelte' || importee.startsWith('svelte/')
+	}),
+	commonjs(),
+	production && sizeSnapshot(), // напишет в консоль размер бандла
 
-		// If we're building for production (npm run build
-		// instead of npm run dev), minify
-		production && terser()
-	],
-	watch: {
-		clearScreen: false
+	// If we're building for production (npm run build
+	// instead of npm run dev), minify
+	production && terser(),
+];
+
+export default [
+	{
+		input: 'src/main.js',
+		output: {
+			sourcemap: true,
+			format: 'iife',
+			name: 'CBWidgetPopup',
+			file: 'public/cbwidgetpopup.js'
+		},
+		plugins: [
+			...plugins, 
+			// Watch the `public` directory and refresh the
+			// browser on changes when not in production
+			!production && livereload('public'),
+			svelte({
+				// enable run-time checks when not in production
+				dev: !production,
+				// we'll extract any component CSS out into
+				// a separate file — better for performance
+				// css: css => {
+				// 	css.write('public/bundle.css');
+				// }
+			})],
+		watch: {
+			clearScreen: false
+		}
+	},
+	{
+		input: 'src_widget/main.js',
+		output: {
+			sourcemap: true,
+			format: 'iife',
+			name: 'CBWidget',
+			file: 'public/cbwidget.js'
+		},
+		plugins
 	}
-};
+];

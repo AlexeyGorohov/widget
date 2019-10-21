@@ -13,5 +13,20 @@
     "bundled": 29163,
     "minified": 11671,
     "gzipped": 4832
+  },
+  "public/cbwidget.js": {
+    "bundled": 21131,
+    "minified": 11402,
+    "gzipped": 4507
+  },
+  "public/cbwidget-outer.js": {
+    "bundled": 1316,
+    "minified": 568,
+    "gzipped": 394
+  },
+  "public/cbwidgetpopup.js": {
+    "bundled": 22892,
+    "minified": 8362,
+    "gzipped": 3649
   }
 }
